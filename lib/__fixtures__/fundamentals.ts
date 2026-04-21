@@ -1,5 +1,6 @@
 // Canonical fundamentals shapes used by unit tests. Tuned to produce
 // predictable scoring outcomes so tests remain deterministic.
+// Shape mirrors Fundamentals in lib/yahoo.ts exactly.
 
 import type { Fundamentals } from "../yahoo";
 
@@ -15,7 +16,7 @@ export const strongCompany: Fundamentals = {
   profitMargin: 0.28,
   roe: 0.32,
   roa: 0.18,
-  debtToEquity: 25,            // low leverage (Yahoo returns % here)
+  debtToEquity: 25,              // low leverage (Yahoo returns % here)
   totalCash: 50_000_000_000,
   totalDebt: 10_000_000_000,
   currentRatio: 2.1,
@@ -23,17 +24,23 @@ export const strongCompany: Fundamentals = {
   peTrailing: 28,
   peForward: 24,
   priceToBook: 10,
-  pegRatio: 0.9,
-  enterpriseValue: 1_200_000_000_000,
-  enterpriseToEbitda: 18,
-  freeCashflow: 80_000_000_000,
-  totalRevenue: 250_000_000_000,
+  priceToSales: 8,
+  peg: 0.9,
+  evToEbitda: 18,
+  beta: 1.1,
   marketCap: 1_100_000_000_000,
-  currency: "USD",
+  enterpriseValue: 1_200_000_000_000,
+  freeCashflow: 80_000_000_000,
+  operatingCashflow: 95_000_000_000,
   dividendYield: 0.005,
   payoutRatio: 0.15,
-  recommendationMean: 2,       // 1-5 where 1=strong buy
+  targetMeanPrice: 450,
+  recommendationKey: "buy",
   numberOfAnalystOpinions: 45,
+  totalRevenue: 250_000_000_000,
+  revenuePerShare: 90,
+  currency: "USD",
+  asOf: "2026-04-21T00:00:00Z",
 };
 
 // A weak / distressed company
@@ -48,25 +55,31 @@ export const distressedCompany: Fundamentals = {
   profitMargin: -0.08,
   roe: -0.12,
   roa: -0.05,
-  debtToEquity: 450,           // very high leverage
+  debtToEquity: 450,             // very high leverage
   totalCash: 500_000_000,
   totalDebt: 15_000_000_000,
-  currentRatio: 0.7,           // below 1 — liquidity strain
+  currentRatio: 0.7,             // below 1 — liquidity strain
   quickRatio: 0.5,
-  peTrailing: null,            // often null when losing money
+  peTrailing: null,              // often null when losing money
   peForward: 25,
   priceToBook: 0.5,
-  pegRatio: null,
-  enterpriseValue: 18_000_000_000,
-  enterpriseToEbitda: 35,
-  freeCashflow: -2_000_000_000, // negative FCF
-  totalRevenue: 20_000_000_000,
+  priceToSales: 0.2,
+  peg: null,
+  evToEbitda: 35,
+  beta: 1.8,
   marketCap: 3_500_000_000,
-  currency: "USD",
+  enterpriseValue: 18_000_000_000,
+  freeCashflow: -2_000_000_000,  // negative FCF
+  operatingCashflow: -500_000_000,
   dividendYield: 0,
   payoutRatio: 0,
-  recommendationMean: 4,
+  targetMeanPrice: 18,
+  recommendationKey: "hold",
   numberOfAnalystOpinions: 12,
+  totalRevenue: 20_000_000_000,
+  revenuePerShare: 280,
+  currency: "USD",
+  asOf: "2026-04-21T00:00:00Z",
 };
 
 // A missing-data case (sparse fundamentals; many nulls)
@@ -89,15 +102,21 @@ export const sparseCompany: Fundamentals = {
   peTrailing: 18,
   peForward: null,
   priceToBook: null,
-  pegRatio: null,
-  enterpriseValue: null,
-  enterpriseToEbitda: null,
-  freeCashflow: null,
-  totalRevenue: null,
+  priceToSales: null,
+  peg: null,
+  evToEbitda: null,
+  beta: null,
   marketCap: 5_000_000_000,
-  currency: "USD",
+  enterpriseValue: null,
+  freeCashflow: null,
+  operatingCashflow: null,
   dividendYield: null,
   payoutRatio: null,
-  recommendationMean: null,
+  targetMeanPrice: null,
+  recommendationKey: null,
   numberOfAnalystOpinions: null,
+  totalRevenue: null,
+  revenuePerShare: null,
+  currency: "USD",
+  asOf: "2026-04-21T00:00:00Z",
 };
