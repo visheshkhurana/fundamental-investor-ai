@@ -1,5 +1,8 @@
 # Fundamental Investor AI
 
+[![CI](https://github.com/visheshkhurana/fundamental-investor-ai/actions/workflows/ci.yml/badge.svg)](https://github.com/visheshkhurana/fundamental-investor-ai/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 A research-driven wealth-OS for long-term equity investors in India (NSE/BSE) and the US (NYSE/NASDAQ). Every stock scored against a structured framework (macro → industry → company → valuation → triggers) with Piotroski F-Score, Altman Z-Score, Dorsey moat classification, Lynch PEG, and two-stage DCF. Claude Sonnet 4.6 explains every score in plain English.
 
 **Live:** https://fundamental-investor-ai.vercel.app
